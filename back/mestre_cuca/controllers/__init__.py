@@ -1,6 +1,10 @@
-import hello_controller
+from hello_controller import api as ns1
+from flask_restx import Api
 
-from flask_restx import Namespace
+api = Api(    
+    version='1,0',
+    title="Mestre Cuca API",
+    description="The python API for the Mestre Cuca PWA"
+)
 
-hello_ns = Namespace("hello", "description", "/hello")
-hello_ns.add_resource(hello_controller.Hello, "")
+api.add_namespace(ns1)
