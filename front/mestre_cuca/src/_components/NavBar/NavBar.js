@@ -6,10 +6,8 @@ import { Link, useLocation } from 'react-router-dom'
 
 const StyledNav = styled.nav `
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
+  display: grid;
+  grid-template-columns: 1fr 276px 1fr;
   padding: 0px 20px;  
 
   .item {
@@ -30,14 +28,18 @@ const StyledNav = styled.nav `
 
   img {    
     width: 200px;
-    margin: 0px 38px;
-  }
-
-  .central-items {
-    display: flex;
-    align-items: center;
+    margin: auto;
   }  
 
+`
+
+const SignUpButton = styled.button `
+  background: none;
+  border: 1px solid #E5E5E5;
+  border-radius: 10px;
+  padding: 7px 15px;
+  margin-left: 8px;
+  font-weight: bold;
 `
 
 const NavBar = () => {
@@ -47,21 +49,26 @@ const NavBar = () => {
 
   return (
     <StyledNav>
-      <Link to='/' className={`item ${isActive('/')}`}>Ingredientes</Link>
 
-      <Link to='/armazens' className={`item ${isActive('/armazens')}`}>Armazéns</Link>
+      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: "center"}}>
+        <Link to='/' className={`item ${isActive('/')}`}>Ingredientes</Link>
 
-      <div className="central-items">
+        <Link to='/armazens' className={`item ${isActive('/armazens')}`}>Armazéns</Link>
+      
         <Link to='/lista-de-compras' className='item'>Lista de Compras</Link>
-        <img alt='logo' src={logo} />
-        <Link to='/receitas' className='item'>Receitas</Link>
       </div>
 
-      <Link to='/pesquisar' className='item'>Pesquisar</Link>
+      <img alt='logo' src={logo} />
 
-      <div>
-        <Link to='/login' className='item'>Login</Link>
-        <button>Sign Up</button>
+      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: "center"}}>
+        <Link to='/receitas' className='item'>Receitas</Link>      
+
+        <Link to='/pesquisar' className='item'>Pesquisar</Link>
+
+        <div>
+          <Link to='/login' className='item'>Login</Link>
+          <SignUpButton className='item'>Sign Up</SignUpButton>
+        </div>
       </div>
 
     </StyledNav>

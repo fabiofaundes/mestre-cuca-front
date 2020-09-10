@@ -11,3 +11,21 @@
   font-style: normal;
   font-weight: bold;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  color: black;
+}
+
+.text-center {
+  text-align: center;
+}
