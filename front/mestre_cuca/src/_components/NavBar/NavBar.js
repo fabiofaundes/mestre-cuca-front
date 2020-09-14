@@ -3,11 +3,13 @@ import styled from 'styled-components'
 
 import logo from '../../assets/images/mestre_cuca_logo.png'
 import { Link, useLocation } from 'react-router-dom'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {faSearch} from '@fortawesome/free-solid-svg-icons'
 
 const StyledNav = styled.nav `
 
   display: grid;
-  grid-template-columns: 1fr 276px 1fr;
+  grid-template-columns: 1fr 14vw 1fr;
   padding: 0px 20px;  
 
   .item {
@@ -27,7 +29,7 @@ const StyledNav = styled.nav `
   }
 
   img {    
-    width: 200px;
+    width: 10vw;
     margin: auto;
   }  
 
@@ -58,12 +60,14 @@ const NavBar = () => {
         <Link to='/lista-de-compras' className='item'>Lista de Compras</Link>
       </div>
 
-      <img alt='logo' src={logo} />
+      <img alt='logo' src={logo}/>
 
       <div style={{display: 'flex', justifyContent: 'space-between', alignItems: "center"}}>
         <Link to='/receitas' className='item'>Receitas</Link>      
 
-        <Link to='/pesquisar' className='item'>Pesquisar</Link>
+        <Link to='/pesquisar' className='item'>
+          Pesquisar <FontAwesomeIcon icon={faSearch} />
+          </Link>
 
         <div>
           <Link to='/login' className='item'>Login</Link>
