@@ -1,4 +1,4 @@
 import NavBar from './NavBar/NavBar'
-import LinkButton from './LinkButton/LinkButton'
+import Filter from './Filter/Filter'
 
-export { NavBar, LinkButton }
+export { NavBar, Filter }

@@ -20,10 +20,17 @@ body {
 .title {
   font-family: Roboto Slab;
   font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 32px;
+  font-weight: bold;  
   color: black;
+}
+
+h1.title {
+  font-size: 24px;
+}
+
+h2.title {
+  font-size: 24px;
+  font-weight: normal;
 }
 
 .text-center {

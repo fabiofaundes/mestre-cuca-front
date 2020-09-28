@@ -9,10 +9,12 @@ const App = () => {
 
     return (<>
         <NavBar />
-        <Switch>
-            <Route path='/' exact component={Ingredientes}/>
-            <Route path='/armazens' component={Armazens} />
-        </Switch>
+        <div style={{padding: "0px 2vw"}}>
+            <Switch>
+                <Route path='/' exact component={Ingredientes}/>
+                <Route path='/armazens' component={Armazens} />
+            </Switch>
+        </div>
     </>)
 }
 
