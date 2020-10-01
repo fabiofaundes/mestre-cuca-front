@@ -18,13 +18,27 @@ const Input = styled.input `
   &:hover {
     border-color: rgba(0, 0, 0, 0.2)
   }
+
+  &[type="search"] {
+    outline-offset: unset;
+
+    &::-webkit-search-cancel-button{
+      -webkit-appearance: none;
+      padding: 5px;
+      background-color: ${colors.red};
+      border-radius: 100%;
+    }    
+  }
 `
 
 const Button = styled.button `
   background: ${colors.defaultOrange};
   border: 1px solid ${colors.black};
   border-radius: 5px;
+  box-sizing: border-box;
+  
   padding: 10px 20px;
+  min-height: 52px;
 
   font-family: Roboto Slab;
   font-size: 18px;

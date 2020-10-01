@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Input, Button, ReactSelect } from '../StyledComponents'
+import { Button, ReactSelect } from '../StyledComponents'
+import LabeledInput from '../LabeledInput/LabeledInput'
 import PropTypes, { string } from 'prop-types'
 
 const ComponentsBox = styled.div`
   display: flex;
-  align-items: stretch;
+  align-items: flex-end;
   flex-wrap: wrap;
 
   margin-top: 20px;
@@ -30,10 +31,23 @@ const Filter = ({ target, className }) => {
     }
   }
 
+  const getPlaceHolderText = () => {
+    switch (target) {
+      case 'ingrediente':
+        return 'Nome, quantidade...'
+    
+      case 'armazem':
+        return 'Nome...'
+      
+      default:
+        return ''
+    }
+  }
+
   const renderExtraComponents = () => {
     switch(target) {
       case 'ingrediente':
-        return <ReactSelect placeholder="Armazéns"/>
+        return <ReactSelect placeholder="Selecionar..." label="Armazéns"/>
       default:
         return <></>
     }
@@ -44,7 +58,13 @@ const Filter = ({ target, className }) => {
       <h2 className='title'>{getTitleText()}</h2>
       <ComponentsBox>
         { renderExtraComponents() }
-        <Input type='text' placeholder="Nome, quantidade..."/>      
+        <LabeledInput
+          type="search"
+          id="txtFilterSearch"
+          name="filterSearch"
+          placeholder={getPlaceHolderText()}
+          label="Pesquisa"
+        />      
         <Button>FILTRAR</Button>
       </ComponentsBox>
     </div>

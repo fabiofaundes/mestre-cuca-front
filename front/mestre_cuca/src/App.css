@@ -36,3 +36,8 @@ h2.title {
 .text-center {
   text-align: center;
 }
+
+label {
+  font-family: Roboto Slab;
+  margin-bottom: 5px;
+}

@@ -25,4 +25,11 @@ const NoOptionsMessage = props => {
   )
 }
 
-export default (props) => <ReactSelect components={{NoOptionsMessage}} classNamePrefix="react-select" {...props} />
+export default (props) => {
+  return(
+    <div className="d-flex flex-column align-items-start">
+      <label htmlFor={props.name}>{props.label}</label>
+      <ReactSelect components={{NoOptionsMessage}} classNamePrefix="react-select" {...props} />
+    </div>
+  )  
+}
