@@ -24,20 +24,20 @@ describe("<Table />", () => {
   })
 
   it('should display columns names', () => {
-    const { getByText } = render(<Table data={mockedData} columnNames={mockedColumNames}/>)
+    const { findByText } = render(<Table data={mockedData} columnNames={mockedColumNames}/>)
 
-    expect(getByText("Nome")).toBeTruthy()
-    expect(getByText("Armazém")).toBeTruthy()
-    expect(getByText("Data de Validade")).toBeTruthy()
-    expect(getByText("Quantidade")).toBeTruthy()
+    expect(findByText("Nome")).toBeTruthy()
+    expect(findByText("Armazém")).toBeTruthy()
+    expect(findByText("Data de Validade")).toBeTruthy()
+    expect(findByText("Quantidade")).toBeTruthy()
   })
 
   it('should display object info', () => {
-    const { getByText } = render(<Table data={mockedData} columnNames={mockedColumNames}/>)
+    const { findByText } = render(<Table data={mockedData} columnNames={mockedColumNames}/>)
 
-    expect(getByText("Pipoca Yoki")).toBeTruthy()
-    expect(getByText("Gaveta da cozinha")).toBeTruthy()
-    expect(getByText("01/12/2001")).toBeTruthy()
-    expect(getByText("400 gramas")).toBeTruthy()
+    expect(findByText("Pipoca Yoki")).toBeTruthy()
+    expect(findByText("Gaveta da cozinha")).toBeTruthy()
+    expect(findByText("01/12/2001")).toBeTruthy()
+    expect(findByText("400 gramas")).toBeTruthy()
   })
 })
