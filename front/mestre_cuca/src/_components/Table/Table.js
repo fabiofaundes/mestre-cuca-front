@@ -1,4 +1,4 @@
-import React, { Children, isValidElement, useState } from 'react'
+import React, { Children, isValidElement } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Column from './Column'
@@ -6,19 +6,22 @@ import { colors } from '../../_helpers'
 
 const StyledTable = styled.table`
   width: 100%;
-  font-family: Roboto Slab;
+  font-family: Roboto Slab;  
 
   thead {
-    border-bottom: 1px solid ${colors.darkOrange};
-    border-right: 1px solid ${colors.darkOrange};
+    border-bottom: 2px solid ${colors.darkOrange};    
   }
 
-  th {
+  th, td {
     padding: 10px 20px;
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: ${colors.grey};
   }
 `
 
-const Table = ({data, className, children}) => {
+const Table = ({data, className, children, updateFn}) => {
 
   const columns = Children.toArray(children).filter(
     child => isValidElement(child) && child.type === Column
@@ -39,14 +42,16 @@ const Table = ({data, className, children}) => {
         {
           data.map((item, i) => 
             <tr key={`item${i}`}>
-              <td>{ columns.map(col => item[col.props.name])}</td>
-            </tr>  
+              { columns.map(col => <td key={col.props.name + i}>{item[col.props.name]}</td>) }
+            </tr>
           )
         }
       </tbody>
     </StyledTable>
   )
 }
+
+Table.Column = Column
 
 Table.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,  

@@ -1,9 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Input } from '../StyledComponents'
+import { useFormContext } from 'react-hook-form'
 
 const LabeledInput = ({id, label, placeholder, type, name, disabled}) => {
+
+  const { register } = useFormContext()
 
   return(
     <div className='d-flex flex-column justify-content-start'>
@@ -14,6 +16,7 @@ const LabeledInput = ({id, label, placeholder, type, name, disabled}) => {
         name={name}
         id={id}
         disabled={disabled}
+        ref={register}
       />      
     </div>
   )

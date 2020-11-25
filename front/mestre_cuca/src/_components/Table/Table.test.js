@@ -11,33 +11,26 @@ const mockedData = [
   },
 ]
 
-const mockedColumNames = [
-  "Nome",
-  "Armazém",
-  "Data de Validade",
-  "Quantidade",
-]
-
 describe("<Table />", () => {
   it('should render without crashing', () => {
-    render(<Table data={mockedData} columnNames={mockedColumNames}/>)
+    render(<Table data={mockedData}/>)
   })
 
   it('should display columns names', () => {
-    const { findByText } = render(<Table data={mockedData} columnNames={mockedColumNames}/>)
+    const { findByText } = render(<Table data={mockedData}/>)
 
-    expect(findByText("Nome")).toBeTruthy()
-    expect(findByText("Armazém")).toBeTruthy()
-    expect(findByText("Data de Validade")).toBeTruthy()
-    expect(findByText("Quantidade")).toBeTruthy()
+    findByText("Nome")
+    findByText("Armazém")
+    findByText("Data de Validade")
+    findByText("Quantidade")
   })
 
   it('should display object info', () => {
-    const { findByText } = render(<Table data={mockedData} columnNames={mockedColumNames}/>)
+    const { findByText } = render(<Table data={mockedData} />)
 
-    expect(findByText("Pipoca Yoki")).toBeTruthy()
-    expect(findByText("Gaveta da cozinha")).toBeTruthy()
-    expect(findByText("01/12/2001")).toBeTruthy()
-    expect(findByText("400 gramas")).toBeTruthy()
+    findByText("Pipoca Yoki")
+    findByText("Gaveta da cozinha")
+    findByText("01/12/2001")
+    findByText("400 gramas")
   })
 })

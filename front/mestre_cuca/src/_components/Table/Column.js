@@ -1,6 +1,7 @@
+import React from 'react'
 import PropTypes from 'prop-types'
 
-const Column = () => null
+const Column = ({name, title}) => <></>
 
 Column.propTypes = {
   name: PropTypes.string.isRequired,

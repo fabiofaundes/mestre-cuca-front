@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Button, ReactSelect } from '../StyledComponents'
 import LabeledInput from '../LabeledInput/LabeledInput'
 import PropTypes, { string } from 'prop-types'
+import { FormProvider, useForm } from 'react-hook-form'
 
 const ComponentsBox = styled.div`
   display: flex;
@@ -18,54 +19,43 @@ const ComponentsBox = styled.div`
 
 const Filter = ({ target, className }) => {
   
-  const getTitleText = () => {    
-    switch (target) {
-      case 'ingrediente':
-        return 'Filtrar Ingredientes'        
-    
-      case 'armazem':
-        return 'Filtrar Armazéns'
-      
-      default:
-        return 'Filtrar'
-    }
-  }
+  const [titleText, setTitleText] = useState()
+  const [placeholderText, setPlaceholderText] = useState()
+  const [extraComponents, setExtraComponents] = useState()
 
-  const getPlaceHolderText = () => {
-    switch (target) {
-      case 'ingrediente':
-        return 'Nome, quantidade...'
-    
-      case 'armazem':
-        return 'Nome...'
-      
-      default:
-        return ''
-    }
-  }
+  const methods = useForm()
 
-  const renderExtraComponents = () => {
+  useEffect(() => {
     switch(target) {
       case 'ingrediente':
-        return <ReactSelect placeholder="Selecionar..." label="Armazéns"/>
+        setTitleText("Filtrar Ingredientes")
+        setPlaceholderText("Nome, quantidade...")
+        setExtraComponents(<ReactSelect placeholder="Selecionar..." label="Armazéns"/>)
+        break;
+      case 'armazem':
+        setTitleText("Filtrar Armazéns")
+        setPlaceholderText("Nome...")
+        break;
       default:
-        return <></>
-    }
-  }  
+        break
+    }    
+  }, [target])
 
   return (
     <div className={`${className}`}>      
-      <h2 className='title'>{getTitleText()}</h2>
+      <h2 className='title'>{titleText}</h2>
       <ComponentsBox>
-        { renderExtraComponents() }
-        <LabeledInput
-          type="search"
-          id="txtFilterSearch"
-          name="filterSearch"
-          placeholder={getPlaceHolderText()}
-          label="Pesquisa"
-        />      
-        <Button>FILTRAR</Button>
+        <FormProvider {...methods}>
+          { extraComponents }
+          <LabeledInput
+            type="search"
+            id="txtFilterSearch"
+            name="filterSearch"
+            placeholder={placeholderText}
+            label="Pesquisa"
+          />      
+          <Button type="submit">FILTRAR</Button>
+        </FormProvider>
       </ComponentsBox>
     </div>
   )
