@@ -1,8 +1,0 @@
-setup.py
-mestre_cuca/__init__.py
-mestre_cuca.egg-info/PKG-INFO
-mestre_cuca.egg-info/SOURCES.txt
-mestre_cuca.egg-info/dependency_links.txt
-mestre_cuca.egg-info/not-zip-safe
-mestre_cuca.egg-info/requires.txt
-mestre_cuca.egg-info/top_level.txt
