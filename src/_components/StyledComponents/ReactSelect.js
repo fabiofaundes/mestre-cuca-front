@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Select, { components } from 'react-select'
 
-const ReactSelect = styled(Select)`
+const StyledSelect = styled(Select)`
   font-family: Roboto Slab;
   width: 240px;
   display: block;
@@ -25,11 +25,17 @@ const NoOptionsMessage = props => {
   )
 }
 
-export default (props) => {
+const ReactSelect = (props) => {
   return(
     <div className="d-flex flex-column align-items-start">
       <label htmlFor={props.name}>{props.label}</label>
-      <ReactSelect components={{NoOptionsMessage}} classNamePrefix="react-select" {...props} />
+      <StyledSelect components={{NoOptionsMessage}} classNamePrefix="react-select" {...props} />
     </div>
   )  
 }
+
+ReactSelect.defaultProps = {
+  placeholder: 'Selecionar...'
+}
+
+export default ReactSelect

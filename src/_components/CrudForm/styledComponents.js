@@ -1,7 +1,12 @@
 import styled from 'styled-components'
 import { colors } from '../../_helpers'
 
-export const StyledForm = styled.form `  
+export const StyledForm = styled.form `
+  padding: 10px 20px;
+
+  & > * {
+    margin-bottom: 20px;
+  }
 `
 
 export const FormWrapper = styled.div`

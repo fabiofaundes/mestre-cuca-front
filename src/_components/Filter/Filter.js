@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Button, ReactSelect } from '../StyledComponents'
-import LabeledInput from '../LabeledInput/LabeledInput'
-import PropTypes, { string } from 'prop-types'
+import PropTypes from 'prop-types'
 import { FormProvider, useForm } from 'react-hook-form'
+
+import { Button } from '../StyledComponents'
+import LabeledInput from '../LabeledInput/LabeledInput'
+import ArmazemSelector from '../ArmazemSelector/ArmazemSelector'
 
 const ComponentsBox = styled.div`
   display: flex;
@@ -30,7 +32,7 @@ const Filter = ({ target, className }) => {
       case 'ingrediente':
         setTitleText("Filtrar Ingredientes")
         setPlaceholderText("Nome, quantidade...")
-        setExtraComponents(<ReactSelect placeholder="Selecionar..." label="Armazéns"/>)
+        setExtraComponents(<ArmazemSelector />)
         break;
       case 'armazem':
         setTitleText("Filtrar Armazéns")
@@ -63,7 +65,7 @@ const Filter = ({ target, className }) => {
 
 Filter.propTypes = {
   target: PropTypes.oneOf(['ingrediente', 'armazem']),
-  className: string,
+  className: PropTypes.string,
 }
 
 Filter.defaultProps = {
