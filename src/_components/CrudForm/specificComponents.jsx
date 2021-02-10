@@ -11,7 +11,7 @@ export const ingredienteComponents = (
         id='txtQuantity'
     />
 
-    <ArmazemSelector required />
+    <ArmazemSelector required includeBtn />
 
     <LabeledInput
         label='Data de Validade'

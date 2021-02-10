@@ -8,10 +8,10 @@ describe('<Filter />', () => {
   })  
 
   it('should render all components for ingrediente', () => {
-    const {getByText} = render(<Filter target='ingrediente' />)
+    const { queryByText } = render(<Filter target='ingrediente' />)
 
-    expect(getByText("Filtrar Ingredientes")).toBeTruthy()
+    expect(queryByText("Filtrar Ingredientes")).toBeInTheDocument()
 
-    expect(getByText("Armazéns")).toBeTruthy()
+    expect(queryByText("Armazém")).toBeInTheDocument()
   })
 })

@@ -73,7 +73,7 @@ const CrudForm = ({target, action, className}) => {
 
       <FormHead>
         <Title>
-          <FontAwesomeIcon icon={icon} />
+          <FontAwesomeIcon icon={icon || faPlusSquare} />
           {titleContent}
         </Title>
       </FormHead>
