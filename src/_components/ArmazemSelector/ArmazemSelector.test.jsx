@@ -5,18 +5,28 @@ import { FormProvider, useForm } from 'react-hook-form'
 
 describe('<ArmazemSelector />', () => {
 
-    const TestComponent = () => {
+    const TestComponent = ({includeButton}) => {
 
         const methods = useForm()
 
         return(
             <FormProvider {...methods}>
-                <ArmazemSelector />
+                <ArmazemSelector includeBtn={includeButton} />
             </FormProvider>
         )        
     }
 
     it('should render without crashing', () => {
         render(<TestComponent />)
+    })
+
+    it('should dynamically render a button', () => {
+        const { rerender, queryByRole } = render(<TestComponent />)
+
+        expect(queryByRole('button')).toBeNull()
+
+        rerender(<TestComponent includeButton />)
+
+        expect(queryByRole('button')).toBeInTheDocument()
     })
 })

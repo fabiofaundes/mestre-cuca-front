@@ -27,7 +27,8 @@ const CrudForm = ({target, action, className}) => {
 
   const methods = useForm()
 
-  //set title content and icon depending on target and action
+  // set title content, icon and specific components
+  // depending on target and action
   useEffect(() => {
     let newTitleContent = ""
     let newSubmitText = ""
@@ -73,7 +74,7 @@ const CrudForm = ({target, action, className}) => {
 
       <FormHead>
         <Title>
-          <FontAwesomeIcon icon={icon || faPlusSquare} />
+          <FontAwesomeIcon data-testid='crud-title-icon' icon={icon || faPlusSquare} />
           {titleContent}
         </Title>
       </FormHead>
